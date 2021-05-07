@@ -19,9 +19,9 @@ def main():
             print("waiting for next message")
             message = work.recv(block=True)
             print(f"message={message}")
-            content = message.bytes.decode("utf-8")
+            content = message.decode("utf-8")
             print(f"content={content}")
-            content_dict = json.load(content)
+            content_dict = json.loads(content)
             print(f"message_dict={content_dict}")
 
 

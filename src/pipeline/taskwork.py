@@ -4,12 +4,13 @@ Collect workload from ventilator
 Sends results to sink
 """
 
+import json
 import logging
 import time
 import traceback
 from types import MethodType
+
 from pynng import Push0, Pull0
-import json
 
 
 class Strategy:
@@ -79,8 +80,7 @@ def main():
                 exceptionarray = [exceptiondata[-1]] + exceptiondata[1:-1]
                 message_dict['result'] = exceptionarray
                 print("failed")
-            with Push0() as sink:
-                sink.listen(sink_addr)
+            with Push0(dial=sink_addr) as sink:
                 time.sleep(0.01)
                 message_str = json.dumps(message_dict)
                 message_bytes = message_str.encode("utf-8")
