@@ -9,13 +9,13 @@ from pynng import Push0
 import random
 import time
 
+from pipeline import vent_addr
+
 
 def main():
-    addr = "tcp://127.0.0.1:5557"
-    with Push0(dial=addr, recv_timeout=100, send_timeout=100) as push:
+    with Push0(dial=vent_addr, recv_timeout=100, send_timeout=100) as push:
         time.sleep(0.01)
-        logging.info("send messages on 5557")
-        logging.info("Sending tasks to workers")
+        logging.info("send messages to workers")
         for task_nbr in range(10):
             workload = random.randint(1, 5)
             message_dict = {

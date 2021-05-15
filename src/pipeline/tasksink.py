@@ -7,11 +7,12 @@ import logging
 from pynng import Push0, Pull0, Timeout
 import time
 
+from pipeline import sink_addr
+
 
 def main():
-    addr = "tcp://127.0.0.1:5558"
     with Pull0() as work:
-        work.listen(addr)
+        work.listen(sink_addr)
         time.sleep(0.01)
         logging.info("receive messages on 5558")
         while True:
