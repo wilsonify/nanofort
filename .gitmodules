@@ -10,3 +10,12 @@
 [submodule "src/zguide"]
 	path = src/zguide
 	url = https://github.com/wilsonify/zguide.git
+[submodule "src/external/nanomsg"]
+	path = src/external/nanomsg
+	url = https://github.com/nanomsg/nanomsg
+[submodule "src/external/nng"]
+	path = src/external/nng
+	url = https://github.com/nanomsg/nng
+[submodule "src/external/pynng"]
+	path = src/external/pynng
+	url = https://github.com/codypiersall/pynng.git
